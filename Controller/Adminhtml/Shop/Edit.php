@@ -10,8 +10,8 @@ use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
-use Saddemlabidi\Shopfinder\Model\ShopFactory;
 use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
+use Saddemlabidi\Shopfinder\Model\ShopFactory;
 
 class Edit extends Action
 {

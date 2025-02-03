@@ -6,10 +6,10 @@ namespace Saddemlabidi\ShopfinderAdminUi\Controller\Adminhtml\Shop;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
-use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
 

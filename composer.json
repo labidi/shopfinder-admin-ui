@@ -4,10 +4,11 @@
     "require": {
         "magento/framework": "*",
         "magento/module-ui": "*",
-        "magento/module-backend": "*"
+        "magento/module-backend": "*",
+        "saddemlabidi/module-shopfinder": "*"
     },
     "type": "magento2-module",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "autoload": {
         "files": [
             "registration.php"
