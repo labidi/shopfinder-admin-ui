@@ -1,5 +1,5 @@
 {
-    "name": "'saddemlabidi/module-shopfinder-admin-ui",
+    "name": "saddemlabidi/module-shopfinder-admin-ui",
     "description": "Magento 2 admin module for managing shops (Shopfinder).",
     "require": {
         "magento/framework": "*",
