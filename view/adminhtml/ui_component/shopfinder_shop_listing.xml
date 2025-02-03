@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">shopfinder_shop_listing.shopfinder_shop_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Shop</label>
+            </button>
+        </buttons>
+        <spinner>shopfinder_shop_listing_columns</spinner>
+        <deps>
+            <dep>shopfinder_shop_listing.shopfinder_shop_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="shopfinder_shop_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Saddemlabidi_ShopfinderAdminUi::shop</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="shopfinder_shop_listing_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters">
+            <settings>
+                <templates>
+                    <filters>
+                        <select>
+                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                        </select>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+    </listingToolbar>
+    <columns name="shopfinder_shop_listing_columns">
+        <column name="entity_id" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">ID</label>
+                <filter>textRange</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="name" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">Name</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="identifier" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">Identifier</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="country" component="Magento_Ui/js/grid/columns/select" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">Country</label>
+                <filter>select</filter>
+                <options class="Magento\Directory\Model\Config\Source\Country"/>
+                <dataType>select</dataType>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">Created</label>
+                <filter>dateRange</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Column">
+            <settings>
+                <label translate="true">Updated</label>
+                <filter>dateRange</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Saddemlabidi\ShopfinderAdminUi\Ui\Component\Listing\Column\ShopActions">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+
+    </columns>
+</listing>
