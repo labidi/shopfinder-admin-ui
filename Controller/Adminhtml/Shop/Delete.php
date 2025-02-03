@@ -11,7 +11,7 @@ use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Saddemlabidi\ShopfinderApi\Api\ShopRepositoryInterface;
+use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
 
 class Delete extends Action implements HttpPostActionInterface
 {

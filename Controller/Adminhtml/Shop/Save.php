@@ -10,7 +10,7 @@ use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Result\Page;
 use Saddemlabidi\Shopfinder\Model\ShopFactory;
-use Saddemlabidi\ShopfinderApi\Api\ShopRepositoryInterface;
+use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
 
 class Save extends Action
 {
