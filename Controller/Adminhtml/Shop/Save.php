@@ -9,11 +9,12 @@ use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Result\Page;
-use Saddemlabidi\Shopfinder\Model\ShopFactory;
 use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
+use Saddemlabidi\Shopfinder\Model\ShopFactory;
 
 class Save extends Action
 {
+    public const string ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop_save';
 
     public function __construct(
         public Action\Context $context,
@@ -24,7 +25,7 @@ class Save extends Action
         parent::__construct($context);
     }
 
-    #[\Override] public function execute() : Page|ResponseInterface
+    #[\Override] public function execute(): Page|ResponseInterface
     {
         $data = $this->getRequest()->getPostValue();
         if (!$data) {
@@ -37,7 +38,7 @@ class Save extends Action
                 $this->messageManager->addErrorMessage(__('This shop no longer exists.'));
                 return $this->_redirect('*/*/');
             }
-        }else {
+        } else {
             $shop = $this->shopFactory->create();
         }
         if (empty($data['entity_id'])) {

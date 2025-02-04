@@ -15,7 +15,7 @@ use Saddemlabidi\Shopfinder\Api\ShopRepositoryInterface;
 
 class Delete extends Action implements HttpPostActionInterface
 {
-    public const string ADMIN_RESOURCE = 'Saddemlabidi_Shopfinder::shop';
+    public const string ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop_save';
 
     public function __construct(
         Context $context,

@@ -15,7 +15,7 @@ use Saddemlabidi\Shopfinder\Model\ShopFactory;
 
 class Edit extends Action
 {
-    const ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop';
+    public const string ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop_save';
 
     public function __construct(
         Action\Context $context,

@@ -10,7 +10,7 @@ use Magento\Framework\Controller\ResultInterface;
 
 class NewAction extends Action
 {
-    public const string ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop';
+    public const string ADMIN_RESOURCE = 'Saddemlabidi_ShopfinderAdminUi::shop_save';
 
     public function __construct(
         Action\Context $context,

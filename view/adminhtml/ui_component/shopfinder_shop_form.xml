@@ -10,7 +10,6 @@
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
 
-
     <settings>
         <buttons>
             <button name="back" class="Saddemlabidi\ShopfinderAdminUi\Block\Adminhtml\Shop\BackButton"/>
@@ -103,10 +102,14 @@
          <field name="image">
              <argument name="data" xsi:type="array">
                  <item name="config" xsi:type="array">
-                     <item name="label" xsi:type="string">Image</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
                      <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
                      <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
-                     <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
                      <item name="uploaderConfig" xsi:type="array">
                          <item name="url" xsi:type="url" path="shopfinder/shop/upload"/>
                      </item>
