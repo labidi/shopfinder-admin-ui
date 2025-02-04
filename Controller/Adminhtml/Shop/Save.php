@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Saddemlabidi\ShopfinderAdminUi\Controller\Adminhtml\Shop;
 
 use Magento\Backend\App\Action;
+use Magento\Catalog\Model\ImageUploader;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -20,7 +21,8 @@ class Save extends Action
         public Action\Context $context,
         private readonly DataPersistorInterface $dataPersistor,
         private readonly ShopFactory $shopFactory,
-        private readonly ShopRepositoryInterface $shopRepository
+        private readonly ShopRepositoryInterface $shopRepository,
+        private readonly ImageUploader $imageUploader,
     ) {
         parent::__construct($context);
     }
@@ -44,6 +46,20 @@ class Save extends Action
         if (empty($data['entity_id'])) {
             $data['entity_id'] = null;
         }
+        $imageName = '';
+        if (isset($data['image']) && is_array($data['image'])) {
+            $imageName = isset($data['image'][0]['name']) ? $data['image'][0]['name'] : '';
+            if (isset($data['image'][0]['tmp_name'])) {
+                try {
+                    $this->imageUploader->moveFileFromTmp($imageName, true);
+                    unset($data['image']);
+                } catch (\Exception $e) {
+                    //
+                }
+                unset($data['image']);
+            }
+        }
+        $shop->setImage($imageName);
         $shop->setData($data);
         try {
             $this->shopRepository->save($shop);
